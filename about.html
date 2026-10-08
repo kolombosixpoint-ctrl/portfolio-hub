@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CV and professional profile for Collins Muli Wambua.">
+<title>About & CV | Collins Muli Wambua</title>
+<style>
+:root { --ink:#13211d; --deep:#0b1d19; --green:#174c3c; --mint:#4ee2a2; --coral:#c45a3d; --gold:#e0a12b; --paper:#f2f5f1; --white:#fff; --muted:#62716a; --line:#dce5dc; font-family:"Trebuchet MS","Segoe UI",sans-serif; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; min-width:320px; background:var(--paper); color:var(--ink); }
+a { color:inherit; }
+.container { width:min(1100px,calc(100% - 36px)); margin:0 auto; }
+header { position:sticky; top:0; z-index:5; border-bottom:1px solid var(--line); background:rgba(242,245,241,.95); backdrop-filter:blur(10px); }
+.nav { display:flex; justify-content:space-between; align-items:center; min-height:66px; gap:20px; }
+.brand { color:var(--green); font-weight:800; letter-spacing:.1em; text-decoration:none; }
+.nav a:last-child { color:var(--green); font-size:13px; font-weight:700; text-decoration:none; }
+.hero { padding:66px 0 54px; color:#f4f8f5; background:linear-gradient(115deg,var(--deep) 0 64%,var(--green) 64% 100%); }
+.hero-inner { display:grid; grid-template-columns:1fr auto; align-items:end; gap:30px; }
+.kicker { margin:0 0 12px; color:#a4dfc0; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+h1,h2,h3,p { margin-top:0; }
+h1 { margin-bottom:12px; font-family:Georgia,serif; font-size:clamp(2.4rem,5vw,4.3rem); font-weight:400; line-height:1.05; }
+.hero-summary { max-width:720px; margin-bottom:0; color:#c9d7d0; line-height:1.7; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.btn { display:inline-flex; justify-content:center; align-items:center; min-height:42px; padding:0 15px; border:1px solid #8fbaa4; border-radius:5px; background:transparent; color:white; font-size:12px; font-weight:700; text-decoration:none; cursor:pointer; }
+.btn.primary { border-color:var(--mint); background:var(--mint); color:var(--deep); }
+main { padding:38px 0 68px; }
+section { margin-bottom:32px; }
+.section-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+.section-head h2 { margin:0; color:var(--green); font-family:Georgia,serif; font-size:27px; font-weight:400; }
+.section-head span { color:var(--muted); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.profile-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-top:18px; }
+.profile-grid p { color:var(--muted); line-height:1.8; }
+.contact-list { display:grid; gap:10px; }
+.contact-item { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13px; }
+.contact-item span:first-child { color:var(--muted); }
+.skill-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; padding-top:18px; }
+.skill { padding:18px; border:1px solid var(--line); background:var(--white); }
+.skill h3 { margin-bottom:8px; color:var(--green); font-size:15px; }
+.skill p { margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+.chip-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
+.chip { display:inline-flex; align-items:center; min-height:29px; padding:0 9px; border:1px solid var(--line); border-radius:4px; background:#f9fbf8; color:#344a3f; font-size:11px; }
+.timeline { display:grid; gap:0; margin-top:8px; }
+.timeline-item { display:grid; grid-template-columns:190px 1fr; gap:20px; padding:19px 0; border-bottom:1px solid var(--line); }
+.timeline-date { color:var(--coral); font-size:11px; font-weight:800; text-transform:uppercase; }
+.timeline-item h3 { margin:0 0 5px; font-family:Georgia,serif; font-size:19px; font-weight:400; }
+.timeline-item p { margin:0; color:var(--muted); font-size:13px; line-height:1.75; }
+.reference-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; padding-top:18px; }
+.reference { display:flex; flex-direction:column; min-height:206px; border:1px solid var(--line); background:var(--white); }
+.reference-image { display:grid; min-height:88px; place-items:center; overflow:hidden; background:var(--green); color:#fff; }
+.reference-image img { width:100%; height:88px; object-fit:cover; }
+.reference-image strong { font-family:Georgia,serif; font-size:21px; font-weight:400; letter-spacing:.05em; }
+.reference-copy { padding:15px; }
+.reference-copy h3 { margin:0 0 6px; font-size:14px; }
+.reference-copy p { margin:0; color:var(--muted); font-size:12px; line-height:1.6; }
+.reference-copy a { display:inline-block; margin-top:10px; color:var(--green); font-size:11px; font-weight:700; }
+.privacy-note { margin-top:14px; color:var(--muted); font-size:11px; line-height:1.6; }
+footer { padding:22px 0; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+@media(max-width:780px) { .hero-inner { grid-template-columns:1fr; align-items:start; } .skill-grid,.reference-grid { grid-template-columns:1fr; } .profile-grid { grid-template-columns:1fr; gap:6px; } }
+@media(max-width:560px) { .container { width:min(100% - 28px,1100px); } .hero { padding:48px 0 38px; background:linear-gradient(150deg,var(--deep) 0 76%,var(--green) 76% 100%); } .nav { min-height:58px; } .timeline-item { grid-template-columns:1fr; gap:7px; } .section-head h2 { font-size:23px; } }
+@media print { body { background:#fff; } header,.hero-actions,footer { display:none; } .hero { padding:15px 0; background:#fff; color:#111; } .hero-summary,.kicker { color:#333; } main { padding:8px 0; } .container { width:100%; } section { break-inside:avoid; margin-bottom:18px; } .skill,.reference { break-inside:avoid; } a { color:inherit; text-decoration:none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav"><a class="brand" href="index.html">KOLOMBO PORTFOLIO</a><a href="index.html#projects">Back to projects</a></div>
+</header>
+<section class="hero">
+  <div class="container hero-inner">
+    <div><p class="kicker">Professional profile · Nairobi, Kenya</p><h1>Collins Muli Wambua</h1><p class="hero-summary">BBIT graduate focused on data management, technology implementation, and software engineering. I build useful systems and support the infrastructure that keeps them working.</p></div>
+    <div class="hero-actions"><a class="btn primary" href="mailto:collinsicon913@gmail.com">Email Collins</a><button class="btn" type="button" onclick="window.print()">Print / Save CV</button></div>
+  </div>
+</section>
+<main class="container">
+  <section id="about">
+    <div class="section-head"><h2>About</h2><span>Profile & contact</span></div>
+    <div class="profile-grid">
+      <p>A highly analytical and proactive BBIT graduate from Murang’a University of Technology, Second Class Honours. Combines foundations in SQL database design, network infrastructure, and Python data scripting with hands-on full-stack web development and freelance technical entrepreneurship. Built, commercialized, and deployed website management platforms for local primary schools, and has practical experience debugging deployments, working with relational data, and supporting client systems.</p>
+      <div class="contact-list">
+        <div class="contact-item"><span>Phone</span><a href="tel:+254740251969">+254 740 251 969</a></div>
+        <div class="contact-item"><span>Email</span><a href="mailto:collinsicon913@gmail.com">collinsicon913@gmail.com</a></div>
+        <div class="contact-item"><span>Location</span><span>Nairobi, Kenya</span></div>
+        <div class="contact-item"><span>Professional track</span><span>Data · Technology · Software</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="computer-literacy">
+    <div class="section-head"><h2>Computer Literacy & Technical Skills</h2><span>Languages, systems, delivery</span></div>
+    <div class="skill-grid">
+      <article class="skill"><h3>Programming & web</h3><p>Practical work across web interfaces, APIs, scripting, and application development.</p><div class="chip-list"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">Java / Spring Boot</span><span class="chip">Dart / Flutter</span></div></article>
+      <article class="skill"><h3>Data & productivity</h3><p>Database design and queries, data checking, analysis, and version-controlled project work.</p><div class="chip-list"><span class="chip">SQL / MySQL</span><span class="chip">Excel</span><span class="chip">VLOOKUP</span><span class="chip">Pivot Tables</span><span class="chip">Git / GitHub</span></div></article>
+      <article class="skill"><h3>Infrastructure & assurance</h3><p>Network access setup, local web-server administration, deployment checks, error-log review, and technical asset records.</p><div class="chip-list"><span class="chip">Apache</span><span class="chip">Router configuration</span><span class="chip">QA & debugging</span><span class="chip">Data validation</span></div></article>
+    </div>
+  </section>
+
+  <section id="field-services">
+    <div class="section-head"><h2>Technical Field Services</h2><span>Hands-on installations & support</span></div>
+    <div class="skill-grid">
+      <article class="skill"><h3>CCTV systems</h3><p>Camera sales, installation support, maintenance, and configuration.</p></article>
+      <article class="skill"><h3>Alarm systems</h3><p>Security alarm setup, system configuration, and maintenance support.</p></article>
+      <article class="skill"><h3>Electric security fencing</h3><p>Security wire-fence installation, configuration, and service support.</p></article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><h2>Experience</h2><span>Selected work</span></div>
+    <div class="timeline">
+      <article class="timeline-item"><div class="timeline-date">2025 – Present · Nairobi</div><div><h3>Freelance Web Developer & Software Entrepreneur</h3><p>Designed, developed, and commercialized school website portals; created relational SQL databases for student and operational records; gathered client requirements and maintained deployed systems.</p></div></article>
+      <article class="timeline-item"><div class="timeline-date">2024 – Present · Remote</div><div><h3>Digital Operations & Data Verification Specialist</h3><p>Audited online datasets and registries, reported a verified 98% accuracy score, and completed structured data-validation work independently through Microworkers and LinkedIn platforms.</p></div></article>
+      <article class="timeline-item"><div class="timeline-date">2025</div><div><h3>Industrial Attachment · ICT Technical Support</h3><p>Supported Emoji Technologies / Apollo Tech KE with error-log review, incident documentation, local web-server maintenance, hardware inventory, and database-schema verification.</p></div></article>
+      <article class="timeline-item"><div class="timeline-date">2024 – 2025</div><div><h3>Field Infrastructure Technician · Contract Operations</h3><p>Installed physical network lines and verified hardware connectivity under client timelines.</p></div></article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><h2>Education & Certifications</h2><span>Academic record</span></div>
+    <div class="timeline">
+      <article class="timeline-item"><div class="timeline-date">August 2026</div><div><h3>Bachelor of Business Information Technology · Second Class Honours</h3><p>Murang’a University of Technology. Focus areas: Business Intelligence Analytics, Relational Database Systems, and Enterprise Architecture.</p></div></article>
+      <article class="timeline-item"><div class="timeline-date">August 2025</div><div><h3>Surveillance Hardware & Network Integration</h3><p>Hikvision Ltd certification.</p></div></article>
+      <article class="timeline-item"><div class="timeline-date">January 2025</div><div><h3>Network Access Infrastructure Basics</h3><p>Cisco Networking Academy certification.</p></div></article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head"><h2>Technical Projects</h2><span>Applied engineering</span></div>
+    <div class="skill-grid">
+      <article class="skill"><h3>Python–SQL Automated Evaluation Engine</h3><p>Built a processing script to ingest multi-variable text entries, validate them against constraints, and store results in an SQL database.</p></article>
+      <article class="skill"><h3>Primary School Web Management Framework</h3><p>Created a modular web platform with custom database endpoints to support reporting for local primary-school operations.</p></article>
+      <article class="skill"><h3>Multi-project product portfolio</h3><p>Prototypes spanning multi-branch retail, education platforms, community websites, and data-driven applications.</p></article>
+    </div>
+  </section>
+
+  <section id="references">
+    <div class="section-head"><h2>Professional References</h2><span>Institutions shown separately</span></div>
+    <div class="reference-grid">
+      <article class="reference"><div class="reference-image"><img src="https://mut.ac.ke/wp-content/uploads/2024/01/SCIT-1.jpg" alt="Murang’a University of Technology School of Computing and Information Technology" loading="lazy"></div><div class="reference-copy"><h3>Dr. Kevin Agina</h3><p>Lecturer & Assistant COD, Department of Computing and IT<br>Murang’a University of Technology</p><a href="https://mut.ac.ke" target="_blank" rel="noreferrer">Institution website</a></div></article>
+      <article class="reference"><div class="reference-image"><strong>VIS · NAIROBI</strong></div><div class="reference-copy"><h3>Mr. Charles Ondieki</h3><p>Group Team Leader<br>Visionary International School, Nairobi</p><span class="privacy-note">Contact details available on request.</span></div></article>
+      <article class="reference"><div class="reference-image"><strong>VISIONARY · NAIROBI</strong></div><div class="reference-copy"><h3>Mr. Joseph Peter Wambua</h3><p>Teacher & Team Leader<br>Visionary International School, Nairobi</p><span class="privacy-note">Contact details available on request.</span></div></article>
+      <article class="reference"><div class="reference-image"><strong>EMOJI · TECHNOLOGIES</strong></div><div class="reference-copy"><h3>Industrial Attachment Office</h3><p>Emoji Technologies / Apollo Tech KE</p><a href="https://apollotechke.co.ke" target="_blank" rel="noreferrer">Institution website</a></div></article>
+    </div>
+    <p class="privacy-note">Reference phone numbers and email addresses are not displayed publicly. Please confirm referees’ consent before adding their direct contact details or official logo files.</p>
+  </section>
+</main>
+<footer><div class="container">Collins Muli Wambua · Nairobi, Kenya · <a href="mailto:collinsicon913@gmail.com">collinsicon913@gmail.com</a></div></footer>
+</body>
+</html>

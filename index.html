@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collins Muli Wambua | Portfolio</title>
+    <style>
+      :root {
+        --bg: #081a17;
+        --bg-soft: #102d29;
+        --card: #123b36;
+        --card-2: #1b4d45;
+        --accent: #4ee2a2;
+        --accent-2: #8ad6ff;
+        --text: #ebf7f3;
+        --muted: #b9d9d4;
+        --line: rgba(255,255,255,0.09);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, var(--bg) 0%, #0c1f1d 100%);
+        color: var(--text);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(8, 26, 23, 0.88);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 76px;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover { color: var(--text); }
+
+      .hero {
+        padding: 70px 0 40px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 5vw, 4.5rem);
+        line-height: 1.05;
+        margin: 16px 0 16px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 680px;
+        line-height: 1.7;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 22px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        min-width: 170px;
+        text-align: center;
+      }
+
+      .btn.primary {
+        background: var(--accent);
+        color: #061b17;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        border-color: var(--line);
+        color: var(--text);
+      }
+
+      .profile-card {
+        background: linear-gradient(180deg, rgba(32,70,62,0.94), rgba(15,39,34,0.96));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      }
+
+      .avatar {
+        height: 220px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #07241f;
+        font-size: 70px;
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+
+      .mini-stats {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .mini-stat {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+
+      .mini-stat strong {
+        display: block;
+        font-size: 1.2rem;
+        margin-top: 4px;
+      }
+
+      section {
+        padding: 34px 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.7rem, 3vw, 2.7rem);
+        margin-bottom: 18px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .tag {
+        border: 1px solid var(--line);
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .project-item {
+        background: linear-gradient(180deg, rgba(19,56,49,0.8), rgba(12,27,24,0.9));
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+      }
+
+      .project-item h3 { margin-bottom: 10px; }
+      .project-item p { color: var(--muted); line-height: 1.7; }
+      .project-item .status {
+        display: inline-block;
+        margin-top: 14px;
+        background: rgba(78,226,162,0.12);
+        color: var(--accent);
+        border: 1px solid rgba(78,226,162,0.25);
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        margin-top: 16px;
+        padding: 0 13px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .project-link:hover { background: rgba(78,226,162,0.12); }
+
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .launch-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .link-box {
+        display: block;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px 20px;
+      }
+
+      .link-box strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .link-box span {
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 28px 0 60px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .grid-3,
+        .project-list,
+        .links-grid,
+        .launch-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#top">COLLINS</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Capabilities</a>
+          <a href="#launch">Launch plan</a>
+          <a href="about.html">About &amp; CV</a>
+          <a href="#connect">Connect</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Software developer • builder • problem solver</div>
+            <h1>Collins Muli Wambua</h1>
+            <p class="lead">
+              Software developer and technology implementer building practical digital solutions for business, learning, and community. Explore my software projects and hands-on infrastructure work.
+            </p>
+            <div class="cta-row">
+              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn secondary" href="#connect">Connect With Me</a>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="avatar">C</div>
+            <div class="mini-stats">
+              <div class="mini-stat">
+                Focus
+                <strong>Full-stack + product</strong>
+              </div>
+              <div class="mini-stat">
+                Strengths
+                <strong>Web, APIs, systems, learning tools</strong>
+              </div>
+              <div class="mini-stat">
+                Goal
+                <strong>Build useful software</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">What I build</h2>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Business systems</h3>
+              <p>Retail dashboards, branch management, inventory logic, stock control, and organized operational workflows.</p>
+              <div class="tags">
+                <span class="tag">Retail</span>
+                <span class="tag">Inventory</span>
+                <span class="tag">Operations</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Education tools</h3>
+              <p>Student learning tools, class collaboration spaces, lesson support systems, and digital classroom experiences.</p>
+              <div class="tags">
+                <span class="tag">Learning</span>
+                <span class="tag">Classroom</span>
+                <span class="tag">Collaboration</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Community platforms</h3>
+              <p>Church and mosque websites, community updates, faith-based communication, and information distribution.</p>
+              <div class="tags">
+                <span class="tag">Community</span>
+                <span class="tag">Faith</span>
+                <span class="tag">Content</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Featured projects</h2>
+          <div class="project-list">
+            <article class="project-item">
+              <h3>Kolombo Market</h3>
+              <p>A multi-branch supermarket dashboard and operations prototype with category-driven reporting, branch overview, low-stock checks, and sales tracking.</p>
+              <span class="status">Retail system</span>
+              <a class="project-link" href="http://127.0.0.1:8081/#overview">Open Market dashboard</a>
+              <a class="project-link" href="../LAUNCH_MARKET.bat" download>Get Market launcher</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Church Website</h3>
+              <p>A community-focused church website concept for sermons, events, prayers, and faith-based communication.</p>
+              <span class="status">Community site</span>
+              <a class="project-link" href="http://127.0.0.1:8092/">Open church website</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Mosque Website</h3>
+              <p>A digital mosque website concept with prayer info, learning resources, and a welcoming, informative design.</p>
+              <span class="status">Faith portal</span>
+              <a class="project-link" href="http://127.0.0.1:8093/">Open mosque website</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Tuition Center Platform</h3>
+              <p>Student booking, teacher acceptance, private online session rooms, and a shared lesson whiteboard.</p>
+              <span class="status">Education platform</span>
+              <a class="project-link" href="http://localhost/tution%20center/index.html">Open tuition center</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Fashion Store</h3>
+              <p>Online storefront and management tools for products, customer accounts, orders, and custom requests.</p>
+              <span class="status">Commerce platform</span>
+              <a class="project-link" href="http://localhost/fashion%20store/index.html">Open fashion store</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Hotspot Wi-Fi</h3>
+              <p>A responsive RouterOS captive-portal page with voucher sign-in, package requests, and customer support actions.</p>
+              <span class="status">Network access</span>
+              <a class="project-link" href="http://127.0.0.1:8084/login.html">Preview hotspot page</a>
+              <a class="project-link" href="../../LAUNCH_HOTSPOT.bat" download>Get hotspot launcher</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Church &amp; Mosque sites</h3>
+              <p>Separate community websites. Start both local previews using the launcher.</p>
+              <span class="status">Community sites</span>
+              <a class="project-link" href="../LAUNCH_COMMUNITY_SITES.bat" download>Get community launcher</a>
+            </article>
+
+            <article class="project-item">
+              <h3>AgriVal</h3>
+              <p>Agriculture evaluation app with a Flutter client and a local Flask API.</p>
+              <span class="status">Agriculture technology</span>
+              <a class="project-link" href="http://localhost:5000/">Open AgriVal API</a>
+              <a class="project-link" href="../LAUNCH_AGRIVAL.bat" download>Get AgriVal launcher</a>
+            </article>
+
+            <article class="project-item">
+              <h3>Library Management</h3>
+              <p>Library administration project. Launch the Windows application and database using the project launcher.</p>
+              <span class="status">Information management</span>
+              <a class="project-link" href="../LAUNCH_LIBRARY.bat" download>Get library launcher</a>
+              <a class="project-link" href="../librarymanagementsystem/LibrarySystem.sln">Open/build library solution</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <h2 class="section-title">Project categories</h2>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Entertainment</h3>
+              <p>Media-driven experiences, interactive apps, lifestyle products, and content-centered platforms.</p>
+            </article>
+            <article class="card">
+              <h3>Educational</h3>
+              <p>Learning platforms, training portals, classroom tools, and productivity systems for students and teachers.</p>
+            </article>
+            <article class="card">
+              <h3>Religious</h3>
+              <p>Community websites and communication tools for spiritual centers, events, teaching, and information flow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="launch">
+        <div class="container">
+          <h2 class="section-title">Fast launch priorities</h2>
+          <div class="launch-grid">
+            <article class="card">
+              <h3>Retail sprint</h3>
+              <p>Multi-branch supermarket dashboard for overview, stock movement, sales summary, and branch comparisons.</p>
+            </article>
+            <article class="card">
+              <h3>Tuition sprint</h3>
+              <p>Live classroom for students and teachers with chat, quiz flow, lesson board, and collaboration tools.</p>
+            </article>
+            <article class="card">
+              <h3>Hackathon angle</h3>
+              <p>Show rapid execution, problem solving, and a product that improves operations or learning in a real setting.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="computer-literacy">
+        <div class="container">
+          <h2 class="section-title">Computer literacy and technical services</h2>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Languages and platforms</h3>
+              <p>HTML, CSS, JavaScript, PHP, SQL/MySQL, Python scripting, Java with Spring Boot, and Dart/Flutter.</p>
+            </article>
+            <article class="card">
+              <h3>Data and delivery</h3>
+              <p>Relational database design, data validation, Git/GitHub, Excel analysis, local Apache servers, and client-side deployments.</p>
+            </article>
+            <article class="card">
+              <h3>Security systems and field work</h3>
+              <p>CCTV camera sales, maintenance, and configuration; alarm system setup; and security electric-fence installation and service.</p>
+            </article>
+          </div>
+          <p style="margin-top:18px"><a class="project-link" href="about.html">View the full CV and experience</a></p>
+        </div>
+      </section>
+
+      <section id="connect">
+        <div class="container">
+          <h2 class="section-title">Connect and reach out</h2>
+          <div class="links-grid">
+            <a class="link-box" href="https://github.com" target="_blank" rel="noreferrer">
+              <strong>GitHub</strong>
+              <span>Code, projects, repositories, experiments</span>
+            </a>
+
+            <a class="link-box" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              <strong>LinkedIn</strong>
+              <span>Professional profile and work history</span>
+            </a>
+
+            <a class="link-box" href="https://www.indeed.com" target="_blank" rel="noreferrer">
+              <strong>Indeed</strong>
+              <span>Job opportunities and professional roles</span>
+            </a>
+
+            <a class="link-box" href="https://www.upwork.com" target="_blank" rel="noreferrer">
+              <strong>Upwork</strong>
+              <span>Freelance and contract work</span>
+            </a>
+
+            <a class="link-box" href="https://www.google.com/search?q=jobs" target="_blank" rel="noreferrer">
+              <strong>Google Jobs</strong>
+              <span>Explore active employment opportunities</span>
+            </a>
+
+            <a class="link-box" href="mailto:collinsicon913@gmail.com">
+              <strong>Email</strong>
+              <span>Reach out for collaboration or work</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">Collins Muli Wambua · Project portfolio</div>
+    </footer>
+  </body>
+</html>
